@@ -1,0 +1,11 @@
+version: '3'
+services:
+  database:
+    image: postgres:11
+    container_name: campeonato-bd
+    ports:
+      - 7778:5432
+    environment:
+      POSTGRES_DB: campeao
+      POSTGRES_USER: campeao
+      POSTGRES_PASSWORD: campeao123
