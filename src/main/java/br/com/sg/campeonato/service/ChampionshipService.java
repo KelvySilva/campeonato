@@ -64,6 +64,12 @@ public class ChampionshipService {
             update.setFinalDate(championship.getFinalDate());
         }
         if(Objects.nonNull(championship) && !(update.getTeamPositions().containsAll(championship.getTeamPositions()))) {
+//            championship.getTeamPositions().stream()
+//                    .forEach(teamPosition -> {
+//                        if (!(update.getTeamPositions().contains(teamPosition))) {
+//                            update.getTeamPositions().add(teamPosition);
+//                        }
+//                    });
             update.setTeamPositions(championship.getTeamPositions());
         }
         

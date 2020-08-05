@@ -19,7 +19,7 @@ public class TeamPositionAPI {
         this.service = service;
     }
 
-    @GetMapping(path = "/protected/team/champ/{id}/ranking")
+    @GetMapping(path = "/protected/teams/champ/{id}/ranking")
     public ResponseEntity findRankByChampId(@PathVariable Long id) {
         return ResponseEntity.ok(this.service.findByChampIdOrderByScore(id));
     }
