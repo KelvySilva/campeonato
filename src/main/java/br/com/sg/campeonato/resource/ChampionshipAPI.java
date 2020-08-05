@@ -36,4 +36,6 @@ public class ChampionshipAPI {
     public ResponseEntity updateOne(@PathVariable Long id, @RequestBody Championship championship) {
         return ResponseEntity.ok(this.service.updateOne(id, championship));
     }
+
+
 }

@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Entity
 public class TeamPosition extends AbstractEntity {
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     private Team team;
 
     private BigDecimal score = BigDecimal.ZERO;

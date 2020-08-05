@@ -52,7 +52,22 @@ public class ChampionshipService {
         if (!championship.getId().equals(update.getId())) {
             throw new ResourceNotFoundException("O id do corpo do objeto é diferente do passado na url!");
         }
+
+        if(Objects.nonNull(championship) && !(update.getName().equals(championship.getName()))) {
+            update.setName(championship.getName());
+        }
+
+        if(Objects.nonNull(championship) && !(update.getInitialDate().isEqual(championship.getInitialDate()))) {
+            update.setInitialDate(championship.getInitialDate());
+        }
+        if(Objects.nonNull(championship) && !(update.getFinalDate().isEqual(championship.getFinalDate()))) {
+            update.setFinalDate(championship.getFinalDate());
+        }
+        if(Objects.nonNull(championship) && !(update.getTeamPositions().containsAll(championship.getTeamPositions()))) {
+            update.setTeamPositions(championship.getTeamPositions());
+        }
         
-        return this.repository.save(championship);
+        return this.repository.saveAndFlush(update);
     }
+
 }

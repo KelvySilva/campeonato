@@ -18,5 +18,4 @@ public class Team extends AbstractEntity {
 
     @Enumerated(EnumType.STRING)
     private STATE state;
-
 }
