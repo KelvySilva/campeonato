@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "2e328008-293f-4698-b6b4-8ab10ced2c7d",
+		"name": "Campeonato",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "list all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/protected/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"protected",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save One",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n    {\n        \"name\": \"Internacional\",\n        \"state\": \"RS\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/v1/admin/team",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"admin",
+								"team"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Championship",
+			"item": [
+				{
+					"name": "save One",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"initialDate\": \"2020-01-01\",\n    \"finalDate\": \"2020-12-31\",\n    \"name\": \"Copa do Brasil\",\n    \"teamPositions\": [\n        {\n            \"team\": {\n                \"id\": 1,\n                \"name\": \"Palmeiras\",\n                \"state\": \"SP\"\n            },\n            \"score\": 10\n        },\n        {\n            \"team\": {\n                \"id\": 2,\n                \"name\": \"Corinthians\",\n                \"state\": \"SP\"\n            },\n            \"score\": 10\n        },\n        {\n            \"team\": {\n                \"id\": 3,\n                \"name\": \"Curitiba\",\n                \"state\": \"PR\"\n            },\n            \"score\": 13\n        },\n        {\n            \"team\": {\n                \"id\": 4,\n                \"name\": \"Paraná\",\n                \"state\": \"PR\"\n            },\n            \"score\": 13\n        },\n        {\n            \"team\": {\n                \"id\": 5,\n                \"name\": \"Cruzeiro\",\n                \"state\": \"MG\"\n            },\n            \"score\": 17\n        },\n        {\n            \"team\": {\n                \"id\": 6,\n                \"name\": \"Atlético Mineiro\",\n                \"state\": \"MG\"\n            },\n            \"score\": 18\n        },\n        {\n            \"team\": {\n                \"id\": 7,\n                \"name\": \"Flamengo\",\n                \"state\": \"RJ\"\n            },\n            \"score\": 12\n        },\n        {\n            \"team\": {\n                \"id\": 8,\n                \"name\": \"Fluminense\",\n                \"state\": \"RJ\"\n            },\n            \"score\": 25\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/v1/admin/champ",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"admin",
+								"champ"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/protected/champs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"protected",
+								"champs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update One",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 15,\n    \"initialDate\": \"2020-01-01\",\n    \"finalDate\": \"2020-12-31\",\n    \"name\": \"Campeonato Brasileiro\",\n    \"teamPositions\": [\n        {\n            \"id\": 16,\n            \"team\": {\n                \"id\": 1,\n                \"name\": \"Palmeiras\",\n                \"state\": \"SP\"\n            },\n            \"score\": 10\n        },\n        {\n            \"id\": 17,\n            \"team\": {\n                \"id\": 2,\n                \"name\": \"Corinthians\",\n                \"state\": \"SP\"\n            },\n            \"score\": 9\n        },\n        {\n            \"id\": 18,\n            \"team\": {\n                \"id\": 3,\n                \"name\": \"Curitiba\",\n                \"state\": \"PR\"\n            },\n            \"score\": 9\n        },\n        {\n            \"id\": 19,\n            \"team\": {\n                \"id\": 4,\n                \"name\": \"Paraná\",\n                \"state\": \"PR\"\n            },\n            \"score\": 7\n        },\n        {\n            \"id\": 20,\n            \"team\": {\n                \"id\": 5,\n                \"name\": \"Cruzeiro\",\n                \"state\": \"MG\"\n            },\n            \"score\": 6\n        },\n        {\n            \"id\": 21,\n            \"team\": {\n                \"id\": 6,\n                \"name\": \"Atlético Mineiro\",\n                \"state\": \"MG\"\n            },\n            \"score\": 5\n        },\n        {\n            \"id\": 22,\n            \"team\": {\n                \"id\": 7,\n                \"name\": \"Flamengo\",\n                \"state\": \"RJ\"\n            },\n            \"score\": 4\n        },\n        {\n            \"id\": 23,\n            \"team\": {\n                \"id\": 8,\n                \"name\": \"Fluminense\",\n                \"state\": \"RJ\"\n            },\n            \"score\": 4\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/v1/admin/champ/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"admin",
+								"champ",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/protected/champ/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"protected",
+								"champ",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/protected/teams/champ/15/ranking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"protected",
+								"teams",
+								"champ",
+								"15",
+								"ranking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Score",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/protected/team/1/champ/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"protected",
+								"team",
+								"1",
+								"champ",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "List All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/protected/games",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"protected",
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/v1/protected/game/40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"protected",
+								"game",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save One",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"championship\": {\n        \"id\": 15\n    },\n    \"teamA\": {\n        \"id\": 3\n    },\n    \"teamB\": {\n        \"id\": 4\n    },\n    \"finished\":false\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/v1/admin/game",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"admin",
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update One",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 40,\n    \"championship\": {\n        \"id\": 15,\n        \"initialDate\": \"2020-01-01\",\n        \"finalDate\": \"2020-12-31\",\n        \"name\": \"Campeonato Brasileiro\",\n        \"teamPositions\": [\n            {\n                \"id\": 17,\n                \"team\": {\n                    \"id\": 2,\n                    \"name\": \"Corinthians\",\n                    \"state\": \"SP\"\n                },\n                \"score\": 9.00\n            },\n            {\n                \"id\": 18,\n                \"team\": {\n                    \"id\": 3,\n                    \"name\": \"Curitiba\",\n                    \"state\": \"PR\"\n                },\n                \"score\": 9.00\n            },\n            {\n                \"id\": 19,\n                \"team\": {\n                    \"id\": 4,\n                    \"name\": \"Paraná\",\n                    \"state\": \"PR\"\n                },\n                \"score\": 7.00\n            },\n            {\n                \"id\": 20,\n                \"team\": {\n                    \"id\": 5,\n                    \"name\": \"Cruzeiro\",\n                    \"state\": \"MG\"\n                },\n                \"score\": 6.00\n            },\n            {\n                \"id\": 21,\n                \"team\": {\n                    \"id\": 6,\n                    \"name\": \"Atlético Mineiro\",\n                    \"state\": \"MG\"\n                },\n                \"score\": 5.00\n            },\n            {\n                \"id\": 22,\n                \"team\": {\n                    \"id\": 7,\n                    \"name\": \"Flamengo\",\n                    \"state\": \"RJ\"\n                },\n                \"score\": 4.00\n            },\n            {\n                \"id\": 23,\n                \"team\": {\n                    \"id\": 8,\n                    \"name\": \"Fluminense\",\n                    \"state\": \"RJ\"\n                },\n                \"score\": 4.00\n            },\n            {\n                \"id\": 16,\n                \"team\": {\n                    \"id\": 1,\n                    \"name\": \"Palmeiras\",\n                    \"state\": \"SP\"\n                },\n                \"score\": 34.00\n            }\n        ]\n    },\n    \"teamA\": {\n        \"id\": 3,\n        \"name\": \"Curitiba\",\n        \"state\": \"PR\"\n    },\n    \"teamAGoals\": 3,\n    \"teamB\": {\n        \"id\": 4,\n        \"name\": \"Paraná\",\n        \"state\": \"PR\"\n    },\n    \"teamBGoals\": 2,\n    \"winner\": null,\n    \"finished\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/v1/admin/game/40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"v1",
+								"admin",
+								"game",
+								"40"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

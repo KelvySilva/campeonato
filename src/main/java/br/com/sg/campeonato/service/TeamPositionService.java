@@ -20,4 +20,8 @@ public class TeamPositionService {
     public List<TeamPosition> findByChampIdOrderByScore(Long id) {
         return this.repository.findByIdOrderByTeamPositionDesc(id);
     }
+
+    public TeamPosition findTeamScoreOnChamp(Long teamId, Long id) {
+        return this.repository.findByIdAndChampionshipId(teamId, id);
+    }
 }

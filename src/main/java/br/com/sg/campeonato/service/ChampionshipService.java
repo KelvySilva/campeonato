@@ -1,17 +1,16 @@
 package br.com.sg.campeonato.service;
 
 import br.com.sg.campeonato.domain.Championship;
-import br.com.sg.campeonato.domain.TeamPosition;
 import br.com.sg.campeonato.error.ResourceNotFoundException;
 import br.com.sg.campeonato.repository.ChampionshipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static br.com.sg.campeonato.contants.ValidationMessages.*;
 
 @Service
 public class ChampionshipService {
@@ -25,14 +24,14 @@ public class ChampionshipService {
 
     public List<Championship> listAll() {
         List<Championship> all = this.repository.findAll();
-        if (all.isEmpty()) throw new ResourceNotFoundException("Nenhum Campionato cadastrado");
+        if (all.isEmpty()) throw new ResourceNotFoundException(NENHUM_CAMPEONATO_CADASTRADO);
         return all;
     }
 
     public Championship findOne(Long id) {
         return this.repository.findById(id)
                 .orElseThrow(
-                        () -> new ResourceNotFoundException(String.format("Nenhum campionato para o ID: %s", id))
+                        () -> new ResourceNotFoundException(String.format(NENHUM_CAMPEONATO_PARA_O_ID, id))
                 );
 
     }
@@ -45,35 +44,28 @@ public class ChampionshipService {
 
     @Transactional
     public Championship updateOne(Long id, Championship championship) {
-        Championship update = this.repository.findById(id)
+        Championship existentChampionship = this.repository.findById(id)
                 .orElseThrow(
-                        () -> new ResourceNotFoundException(String.format("Nenhum campionato para o ID: %s", id))
+                        () -> new ResourceNotFoundException(String.format(NENHUM_CAMPEONATO_PARA_O_ID, id))
                 );
-        if (!championship.getId().equals(update.getId())) {
-            throw new ResourceNotFoundException("O id do corpo do objeto é diferente do passado na url!");
+        if (!championship.getId().equals(existentChampionship.getId())) {
+            throw new ResourceNotFoundException(MENSAGEM_DE_PARAMETROS_DIVERGENTES);
         }
+        if(Objects.nonNull(championship) && !(existentChampionship.getName().equals(championship.getName()))) {
+            existentChampionship.setName(championship.getName());
+        }
+        if(Objects.nonNull(championship) && !(existentChampionship.getInitialDate().isEqual(championship.getInitialDate()))) {
+            existentChampionship.setInitialDate(championship.getInitialDate());
+        }
+        if(Objects.nonNull(championship) && !(existentChampionship.getFinalDate().isEqual(championship.getFinalDate()))) {
+            existentChampionship.setFinalDate(championship.getFinalDate());
+        }
+        if(Objects.nonNull(championship) && !(existentChampionship.getTeamPositions().containsAll(championship.getTeamPositions()))) {
 
-        if(Objects.nonNull(championship) && !(update.getName().equals(championship.getName()))) {
-            update.setName(championship.getName());
-        }
-
-        if(Objects.nonNull(championship) && !(update.getInitialDate().isEqual(championship.getInitialDate()))) {
-            update.setInitialDate(championship.getInitialDate());
-        }
-        if(Objects.nonNull(championship) && !(update.getFinalDate().isEqual(championship.getFinalDate()))) {
-            update.setFinalDate(championship.getFinalDate());
-        }
-        if(Objects.nonNull(championship) && !(update.getTeamPositions().containsAll(championship.getTeamPositions()))) {
-//            championship.getTeamPositions().stream()
-//                    .forEach(teamPosition -> {
-//                        if (!(update.getTeamPositions().contains(teamPosition))) {
-//                            update.getTeamPositions().add(teamPosition);
-//                        }
-//                    });
-            update.setTeamPositions(championship.getTeamPositions());
+            existentChampionship.setTeamPositions(championship.getTeamPositions());
         }
         
-        return this.repository.saveAndFlush(update);
+        return this.repository.saveAndFlush(existentChampionship);
     }
 
 }

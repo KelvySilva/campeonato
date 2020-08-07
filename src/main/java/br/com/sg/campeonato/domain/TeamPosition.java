@@ -17,4 +17,12 @@ public class TeamPosition extends AbstractEntity {
     private Team team;
 
     private BigDecimal score = BigDecimal.ZERO;
+
+    @Override
+    public String toString() {
+        return "TeamPosition{" +
+                "\n team=" + team +
+                "\n, score=" + score +
+                "\n"+'}';
+    }
 }
