@@ -31,10 +31,16 @@ public class ChampionshipAPI {
     public ResponseEntity saveOne(@RequestBody Championship championship){
         return ResponseEntity.ok(this.service.saveOne(championship));
     }
-    
+
     @PutMapping(path = "/admin/champ/{id}")
     public ResponseEntity updateOne(@PathVariable Long id, @RequestBody Championship championship) {
         return ResponseEntity.ok(this.service.updateOne(id, championship));
+    }
+
+    @DeleteMapping(path = "/admin/champ/{id}")
+    public ResponseEntity deleteOne(@PathVariable Long id) {
+        this.service.deleteOne(id);
+        return ResponseEntity.accepted().build();
     }
 
 

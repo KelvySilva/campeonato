@@ -117,4 +117,7 @@ public class GameService {
     }
 
 
+    public void deleteOne(Long id) {
+        this.repository.deleteById(id);
+    }
 }

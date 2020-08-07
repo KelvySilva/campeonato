@@ -59,4 +59,8 @@ public class TeamService {
 
         return this.repository.saveAndFlush(existentTeam);
     }
+
+    public void deleteOne(Long id) {
+        this.repository.deleteById(id);
+    }
 }

@@ -37,4 +37,10 @@ public class TeamAPI {
     public ResponseEntity updateOne(@PathVariable Long id,@RequestBody Team team) {
         return ResponseEntity.ok(this.service.updateOne(id,team));
     }
+
+    @DeleteMapping(path = "/admin/team/{id}")
+    public ResponseEntity deleteOne(@PathVariable Long id) {
+        this.service.deleteOne(id);
+        return ResponseEntity.accepted().build();
+    }
 }

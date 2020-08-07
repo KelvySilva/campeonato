@@ -36,4 +36,10 @@ public class GameAPI {
     public ResponseEntity updateOne(@PathVariable Long id, @RequestBody Game game) {
         return ResponseEntity.ok(this.service.updateOne(id, game));
     }
+
+    @DeleteMapping(path = "/admin/game/{id}")
+    public ResponseEntity deleteOne(@PathVariable Long id) {
+        this.service.deleteOne(id);
+        return ResponseEntity.accepted().build();
+    }
 }

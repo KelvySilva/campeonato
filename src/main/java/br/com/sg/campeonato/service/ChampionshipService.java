@@ -68,4 +68,7 @@ public class ChampionshipService {
         return this.repository.saveAndFlush(existentChampionship);
     }
 
+    public void deleteOne(Long id) {
+        this.repository.deleteById(id);
+    }
 }
